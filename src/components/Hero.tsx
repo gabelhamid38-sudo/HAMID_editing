@@ -13,8 +13,8 @@ export default function Hero() {
 
             <div className="space-y-6">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight slide-up">
-                I Turn Raw Footage Into{' '}
-                <span className="text-yellow-400">Cinematic Stories.</span>
+                Elite Video Editor Helping content creators{' '}
+                <span className="text-yellow-400">turn passion into a career</span>
               </h1>
 
               <p className="text-lg text-gray-400 leading-relaxed max-w-2xl slide-up">
