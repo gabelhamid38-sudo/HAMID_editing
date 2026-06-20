@@ -22,9 +22,9 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-transparent rounded-2xl blur-3xl glow-pulse" />
             <div className="relative bg-gradient-to-br from-gray-900 to-black p-1 rounded-2xl overflow-hidden border border-yellow-400/20">
               <img
-                src="/ChatGPT_Image_May_5,_2026,_12_22_26_PM.png"
+                src="/file_00000000ec64722faebf3e31c51bd67f.png"
                 alt="Gabel Abdelhamid"
-                className="w-full rounded-xl"
+                className="w-full rounded-xl object-cover object-top"
               />
               <div className="absolute top-4 left-4 bg-black/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-yellow-400/20">
                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />

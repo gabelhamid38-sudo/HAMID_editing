@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import StatsBar from './components/StatsBar';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
+import LongFormPortfolio from './components/LongFormPortfolio';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -22,7 +23,7 @@ interface PortfolioItem {
 function App() {
   const [selectedVideo, setSelectedVideo] = useState<PortfolioItem | null>(null);
 
-  const portfolioItems: PortfolioItem[] = [
+  const shortFormItems: PortfolioItem[] = [
     {
       id: '1',
       title: 'OMAR PROJECT',
@@ -57,19 +58,38 @@ function App() {
     },
     {
       id: '5',
-      title: 'ARABIC PODCAST',
+      title: 'OMAR PROJECT',
       category: 'Short-Form',
-      vimeoUrl: 'https://vimeo.com/1106113576?fl=pl&fe=sh',
-      vimeoId: '1106113576',
-      thumbnail: 'https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=600',
+      vimeoUrl: 'https://vimeo.com/1194756630?fl=pl&fe=sh',
+      vimeoId: '1194756630',
+      thumbnail: '/thumbnails/ChatGPT_Image_Apr_22,_2026,_11_24_44_PM.png',
     },
     {
       id: '6',
-      title: 'SIMON SQUIBB',
+      title: 'بودكاست مدرسة الاستثمار',
+      category: 'Short-Form',
+      vimeoUrl: 'https://vimeo.com/1106113576?fl=pl&fe=sh',
+      vimeoId: '1106113576',
+      thumbnail: 'https://vumbnail.com/1106113576.jpg',
+    },
+  ];
+
+  const longFormItems: PortfolioItem[] = [
+    {
+      id: '7',
+      title: 'Business Knowledge (Simon Squibb)',
       category: 'Long-Form',
       vimeoUrl: 'https://vimeo.com/1185684464?fl=pl&fe=sh',
       vimeoId: '1185684464',
-      thumbnail: 'https://images.pexels.com/photos/3938020/pexels-photo-3938020.jpeg?auto=compress&cs=tinysrgb&w=600',
+      thumbnail: '/thumbnails/Capture_d\'ecran_2026-05-15_165454.png',
+    },
+    {
+      id: '8',
+      title: 'Mike Mak PROJECT',
+      category: 'Long-Form',
+      vimeoUrl: 'https://vimeo.com/1192654935?fl=pl&fe=sh',
+      vimeoId: '1192654935',
+      thumbnail: '/thumbnails/ChatGPT_Image_May_2,_2026,_01_58_32_PM.png',
     },
   ];
 
@@ -79,7 +99,8 @@ function App() {
       <Hero />
       <StatsBar />
       <Services />
-      <Portfolio items={portfolioItems} onSelectVideo={setSelectedVideo} />
+      <Portfolio items={shortFormItems} onSelectVideo={setSelectedVideo} />
+      <LongFormPortfolio items={longFormItems} onSelectVideo={setSelectedVideo} />
       <About />
       <Testimonials />
       <CTA />

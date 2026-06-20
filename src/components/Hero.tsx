@@ -47,9 +47,9 @@ export default function Hero() {
               <div className="relative bg-gradient-to-br from-gray-900 to-black p-1 rounded-3xl overflow-hidden border border-yellow-400/20">
                 <div className="bg-black p-6 rounded-2xl space-y-4">
                   <img
-                    src="/ChatGPT_Image_May_5,_2026,_12_22_26_PM.png"
+                    src="/file_00000000ec64722faebf3e31c51bd67f.png"
                     alt="Gabel Abdelhamid"
-                    className="w-full rounded-xl"
+                    className="w-full rounded-xl object-cover object-top"
                   />
 
                   <div className="relative">
