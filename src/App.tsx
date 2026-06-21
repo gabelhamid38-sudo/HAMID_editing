@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import HeroPortfolioScroll from './components/HeroPortfolioScroll';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import LongFormPortfolio from './components/LongFormPortfolio';
@@ -93,28 +92,17 @@ function App() {
     },
   ];
 
-  const portfolioSection = (
-    <>
-      <Portfolio items={shortFormItems} onSelectVideo={setSelectedVideo} />
-      <LongFormPortfolio items={longFormItems} onSelectVideo={setSelectedVideo} />
-    </>
-  );
-
   return (
     <div className="bg-black text-white overflow-x-hidden">
       <Navbar />
-
-      <HeroPortfolioScroll
-        heroContent={<Hero />}
-        portfolioContent={portfolioSection}
-      />
-
+      <Hero />
+      <Portfolio items={shortFormItems} onSelectVideo={setSelectedVideo} />
+      <LongFormPortfolio items={longFormItems} onSelectVideo={setSelectedVideo} />
       <About />
       <Testimonials />
       <Services />
       <CTA />
       <Footer />
-
       {selectedVideo && (
         <VideoModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
       )}

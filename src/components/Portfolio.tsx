@@ -1,4 +1,5 @@
 import { Play } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface PortfolioItem {
   id: string;
@@ -15,10 +16,31 @@ interface PortfolioProps {
 }
 
 export default function Portfolio({ items, onSelectVideo }: PortfolioProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+    <section
+      ref={sectionRef}
+      id="portfolio"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-black"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        transition: 'opacity 0.7s ease-out, transform 0.7s ease-out',
+      }}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 slide-up">
+        <div className="space-y-4 mb-12">
           <p className="label-accent">PORTFOLIO</p>
           <h2 className="section-heading">
             Recent <span className="text-yellow-400">Work</span>
@@ -29,9 +51,13 @@ export default function Portfolio({ items, onSelectVideo }: PortfolioProps) {
           {items.map((item, index) => (
             <div
               key={item.id}
-              className="group relative overflow-hidden rounded-2xl cursor-pointer slide-up aspect-[9/16] bg-gradient-to-br from-gray-800 to-black"
+              className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[9/16] bg-gradient-to-br from-gray-800 to-black"
               onClick={() => onSelectVideo(item)}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(24px)',
+                transition: `opacity 0.5s ease-out ${index * 0.08}s, transform 0.5s ease-out ${index * 0.08}s`,
+              }}
             >
               <img
                 src={item.thumbnail}
