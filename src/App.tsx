@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import StatsBar from './components/StatsBar';
+import HeroPortfolioScroll from './components/HeroPortfolioScroll';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import LongFormPortfolio from './components/LongFormPortfolio';
@@ -54,7 +54,7 @@ function App() {
       category: 'Short-Form',
       vimeoUrl: 'https://vimeo.com/1136622682?fl=pl&fe=sh',
       vimeoId: '1136622682',
-      thumbnail: '/Capture_d\'ecran_2026-04-22_234744.png',
+      thumbnail: "/Capture_d'ecran_2026-04-22_234744.png",
     },
     {
       id: '5',
@@ -62,7 +62,7 @@ function App() {
       category: 'Short-Form',
       vimeoUrl: 'https://vimeo.com/1194756630?fl=pl&fe=sh',
       vimeoId: '1194756630',
-      thumbnail: '/thumbnails/ChatGPT_Image_Apr_22,_2026,_11_24_44_PM.png',
+      thumbnail: "/thumbnails/ChatGPT_Image_Apr_22,_2026,_11_24_44_PM.png",
     },
     {
       id: '6',
@@ -81,7 +81,7 @@ function App() {
       category: 'Long-Form',
       vimeoUrl: 'https://vimeo.com/1185684464?fl=pl&fe=sh',
       vimeoId: '1185684464',
-      thumbnail: '/thumbnails/Capture_d\'ecran_2026-05-15_165454.png',
+      thumbnail: "/thumbnails/Capture_d'ecran_2026-05-15_165454.png",
     },
     {
       id: '8',
@@ -93,18 +93,28 @@ function App() {
     },
   ];
 
+  const portfolioSection = (
+    <>
+      <Portfolio items={shortFormItems} onSelectVideo={setSelectedVideo} />
+      <LongFormPortfolio items={longFormItems} onSelectVideo={setSelectedVideo} />
+    </>
+  );
+
   return (
     <div className="bg-black text-white overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <StatsBar />
-      <Services />
-      <Portfolio items={shortFormItems} onSelectVideo={setSelectedVideo} />
-      <LongFormPortfolio items={longFormItems} onSelectVideo={setSelectedVideo} />
+
+      <HeroPortfolioScroll
+        heroContent={<Hero />}
+        portfolioContent={portfolioSection}
+      />
+
       <About />
       <Testimonials />
+      <Services />
       <CTA />
       <Footer />
+
       {selectedVideo && (
         <VideoModal video={selectedVideo} onClose={() => setSelectedVideo(null)} />
       )}

@@ -1,12 +1,13 @@
 import { Star } from 'lucide-react';
 
-export default function About() {
-  const skills = [
-    { name: 'Premiere Pro', percentage: 96 },
-    { name: 'After Effects', percentage: 85 },
-    { name: 'Motion Graphics', percentage: 80 },
-  ];
+const stats = [
+  { number: '122+', label: 'Projects' },
+  { number: '5★', label: 'Ratings' },
+  { number: '24+', label: 'Clients' },
+  { number: '3+', label: 'Years' },
+];
 
+export default function About() {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-6xl mx-auto">
@@ -33,7 +34,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="space-y-6 fade-in">
+          <div className="space-y-8 fade-in">
             <div className="space-y-4">
               <p className="text-lg text-gray-300 leading-relaxed">
                 Hi, I'm Gabel Abdelhamid — a passionate video editor with over 3 years of experience turning raw footage into compelling visual narratives. I specialize in YouTube content, brand commercials, and viral short-form videos. My approach blends technical precision with creative storytelling.
@@ -43,20 +44,17 @@ export default function About() {
               </p>
             </div>
 
-            <div className="space-y-6 pt-6">
-              <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Technical Skills</p>
-              {skills.map((skill, index) => (
-                <div key={index} className="space-y-2 slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-white">{skill.name}</span>
-                    <span className="text-yellow-400 font-bold">{skill.percentage}%</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-4 border-t border-gray-800">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center group slide-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="text-3xl md:text-4xl font-bold text-yellow-400 group-hover:scale-110 transition-transform duration-300">
+                    {stat.number}
                   </div>
-                  <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-yellow-400 transition-all duration-500"
-                      style={{ width: `${skill.percentage}%` }}
-                    />
-                  </div>
+                  <p className="text-gray-400 text-sm mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
